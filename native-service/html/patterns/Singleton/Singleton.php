@@ -1,6 +1,8 @@
 <?php
 declare(strict_types=1);
 
+namespace Patterns\Singleton;
+
 class Singleton
 {
     private static ?Singleton $instance = null;

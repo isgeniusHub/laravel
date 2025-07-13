@@ -1,14 +1,16 @@
 <?php
 declare(strict_types=1);
 
-require_once '../patterns/singleton/Singleton.php';
-require_once '../helpers/PrintFileContentHelper.php';
-require_once '../helpers/PrintClassInfoHelper.php';
+require_once __DIR__ . '/../autoload.php';
+
+use Helpers\PrintClassInfoHelper;
+use Helpers\PrintFileContentHelper;
+use Patterns\Singleton\Singleton;
 
 echo sprintf('<h1>%s</h1>', 'Singleton');
 echo sprintf('<h3>%s</h3>', 'Порождающий шаблон');
 
-echo PrintFileContentHelper::printFileContent('Singleton.php');
+echo PrintFileContentHelper::printFileContent('../patterns/Singleton/Singleton.php');
 
 
 echo sprintf('<h3>%s</h3>', 'Особенности:');

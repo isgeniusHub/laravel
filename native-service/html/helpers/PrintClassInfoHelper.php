@@ -1,6 +1,8 @@
 <?php
 declare(strict_types=1);
 
+namespace Helpers;
+
 class PrintClassInfoHelper
 {
     /**
@@ -8,14 +10,14 @@ class PrintClassInfoHelper
      *
      * @param string $class
      * @return string
-     * @throws ReflectionException
+     * @throws \ReflectionException
      */
     public static function getHtml(string $class): string
     {
         $html = '<div style="font-size: 18px;">';
         $reflectionClass = new \ReflectionClass($class);
 
-        echo sprintf('<h4>%s methods:</h4>', $reflectionClass->getName());
+        echo sprintf('<h4>%s methods:</h4>', $reflectionClass->getShortName());
         foreach ($reflectionClass->getMethods() as $key => $method) {
             echo ($key + 1) . '. methodName = ' . $method->getName() . '<br>';
             echo 'isConstructor = ' . ($method->isConstructor() ? 'true' : 'false'). '<br>';
@@ -23,7 +25,7 @@ class PrintClassInfoHelper
             echo 'isStatic = ' . ($method->isStatic() ? 'true' : 'false') . '<br>';
         }
 
-        echo sprintf('<h4>%s properties:</h4>', $reflectionClass->getName());
+        echo sprintf('<h4>%s properties:</h4>', $reflectionClass->getShortName());
         foreach ($reflectionClass->getProperties() as $key => $property) {
             echo ($key + 1) . '. name = ' . $property->getName() . '<br>';
             echo 'isStatic = ' . ($property->isStatic() ? 'true' : 'false') . '<br>';

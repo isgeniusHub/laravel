@@ -1,8 +1,6 @@
 <?php
 declare(strict_types=1);
 
-/*TODO добавить автолоадер*/
-
 /**
  * @param array<string> $patternsLinks
  * @return string
