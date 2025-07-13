@@ -1,6 +1,6 @@
 FROM  php:8.3-fpm
 
-WORKDIR /var/www
+WORKDIR /var/www/html
 
 RUN apt-get update && apt-get install -y \
     git \
@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y \
     libzip-dev \
     && docker-php-ext-install pdo pdo_pgsql pgsql zip intl
 
-COPY native-service ./
+COPY native-service/html ./
 
 RUN pecl install xdebug \
     && docker-php-ext-enable xdebug

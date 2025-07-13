@@ -20,10 +20,12 @@ COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
 
 # Запускаем установку зависимостей
 RUN composer install --no-interaction --optimize-autoloader
-RUN php artisan key:generate
-RUN php artisan migrate
 RUN chown -R www-data:www-data storage bootstrap/cache
 RUN chmod -R 777 storage bootstrap/cache
 
 CMD ["php-fpm"]
+
+RUN php artisan key:generate
+RUN php artisan migrate
+
 EXPOSE 9000
